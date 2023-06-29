@@ -1,8 +1,8 @@
-import SimpleSlider from "./components/Slider";
+import PreviousNextMethods from "./components/Slider";
 function App() {
   return (
     <div className="App">
-      <SimpleSlider />
+      <PreviousNextMethods />
     </div>
   );
 }

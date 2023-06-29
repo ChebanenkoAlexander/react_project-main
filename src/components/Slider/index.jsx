@@ -2,8 +2,21 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Slide from "../Slide";
 
-export default class SimpleSlider extends Component {
+
+export default class PreviousNextMethods extends Component {
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
   render() {
     const settings = {
       dots: true,
@@ -13,28 +26,19 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1
     };
     return (
-      <div>
-        <h2 className="text-3xl font-bold underline"> Single Item</h2>
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+      <div className="container mx-auto">
+        <Slider ref={c => (this.slider = c)} {...settings}>
+          <Slide/>
+          <Slide/>
         </Slider>
+        <div className="mt-5">
+          <button className="button" onClick={this.previous}>
+            Previous
+          </button>
+          <button className="button" onClick={this.next}>
+            Next
+          </button>
+        </div>
       </div>
     );
   }
