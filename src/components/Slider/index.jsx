@@ -34,6 +34,8 @@ export default class PreviousNextMethods extends Component {
         <Slider ref={(c) => (this.slider = c)} {...settings}>
           <Slide />
           <Slide />
+          <Slide />
+          <Slide />
         </Slider>
         <div className="mt-5">
           <button className="button" onClick={this.previous}>
